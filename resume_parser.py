@@ -2,8 +2,12 @@ import re
 import PyPDF2
 import docx
 from io import BytesIO
-import spacy
-from spacy.matcher import Matcher
+try:
+    import spacy
+    from spacy.matcher import Matcher
+except ImportError:
+    spacy = None
+    Matcher = None
 
 class ResumeParser:
     """
