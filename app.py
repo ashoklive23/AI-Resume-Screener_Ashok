@@ -16,7 +16,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for Premium Dark Theme
+# Custom CSS for Premium Light Theme
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
@@ -26,162 +26,128 @@ st.markdown("""
     }
     
     .main {
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        background: #f8fafc;
     }
     
     .stApp {
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        background: #f8fafc;
     }
     
     h1, h2, h3, h4, h5, h6 {
-        color: #ffffff !important;
+        color: #0f172a !important;
         font-weight: 700 !important;
     }
     
+    p, span, div {
+        color: #475569;
+    }
+    
     .candidate-card {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+        background: #ffffff;
         border-radius: 16px;
         padding: 24px;
         margin: 16px 0;
-        border: 1px solid rgba(148, 163, 184, 0.2);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(10px);
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
     }
     
     .candidate-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 12px 48px rgba(59, 130, 246, 0.3);
-        border-color: rgba(59, 130, 246, 0.5);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        border-color: #3b82f6;
     }
     
     .band-badge {
         display: inline-block;
-        padding: 8px 16px;
-        border-radius: 8px;
+        padding: 6px 12px;
+        border-radius: 6px;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 13px;
         margin: 4px;
-        animation: fadeIn 0.5s ease;
+        color: white !important;
     }
     
-    .band-5A {
-        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-        color: white;
-    }
-    
-    .band-5B {
-        background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-        color: white;
-    }
-    
-    .band-4A {
-        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        color: white;
-    }
-    
-    .band-4B {
-        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-        color: white;
-    }
-    
-    .band-4C {
-        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-        color: white;
-    }
+    .band-5A { background: #3b82f6; }
+    .band-5B { background: #8b5cf6; }
+    .band-4A { background: #10b981; }
+    .band-4B { background: #f59e0b; }
+    .band-4C { background: #ef4444; }
     
     .skill-tag {
         display: inline-block;
-        background: rgba(59, 130, 246, 0.2);
-        color: #60a5fa;
-        padding: 6px 12px;
-        border-radius: 6px;
+        background: #eff6ff;
+        color: #2563eb;
+        padding: 4px 10px;
+        border-radius: 4px;
         margin: 4px;
         font-size: 12px;
-        border: 1px solid rgba(59, 130, 246, 0.3);
-        transition: all 0.3s ease;
-    }
-    
-    .skill-tag:hover {
-        background: rgba(59, 130, 246, 0.3);
-        transform: scale(1.05);
+        border: 1px solid #dbeafe;
+        font-weight: 500;
     }
     
     .skill-tag.premium {
-        background: rgba(245, 158, 11, 0.2);
-        color: #fbbf24;
-        border-color: rgba(245, 158, 11, 0.3);
+        background: #fffbeb;
+        color: #d97706;
+        border-color: #fcd34d;
     }
     
     .metric-container {
-        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+        background: #ffffff;
         border-radius: 12px;
         padding: 20px;
-        border: 1px solid rgba(148, 163, 184, 0.2);
+        border: 1px solid #e2e8f0;
         text-align: center;
-        transition: all 0.3s ease;
-    }
-    
-    .metric-container:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
     
     .metric-value {
         font-size: 32px;
         font-weight: 700;
-        color: #60a5fa;
+        color: #0f172a;
         margin: 8px 0;
     }
     
     .metric-label {
-        color: #94a3b8;
-        font-size: 14px;
+        color: #64748b;
+        font-size: 13px;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 0.5px;
+        font-weight: 600;
     }
     
     .stButton>button {
-        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        background: #2563eb;
         color: white;
         border: none;
-        border-radius: 8px;
-        padding: 12px 24px;
+        border-radius: 6px;
         font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
     }
     
-    .stButton>button:hover {
+    /* Style for the Reset button (Primary - Red Gradient) */
+    div[data-testid="stSidebar"] .stButton > button {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+        box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3) !important;
+        border: none !important;
+        color: white !important;
+    }
+    
+    div[data-testid="stSidebar"] .stButton > button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 24px rgba(59, 130, 246, 0.5);
+        box-shadow: 0 6px 24px rgba(239, 68, 68, 0.5) !important;
     }
     
     .upload-section {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
-        border: 2px dashed rgba(59, 130, 246, 0.5);
-        border-radius: 16px;
-        padding: 40px;
+        background: #ffffff;
+        border: 2px dashed #cbd5e1;
+        border-radius: 12px;
+        padding: 32px;
         text-align: center;
-        transition: all 0.3s ease;
-    }
-    
-    .upload-section:hover {
-        border-color: rgba(59, 130, 246, 0.8);
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
-    }
-    
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
     }
     
     .sidebar .sidebar-content {
-        background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
-    }
-    
-    .stProgress > div > div {
-        background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+        background: #f1f5f9;
+        border-right: 1px solid #e2e8f0;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -194,46 +160,59 @@ def main():
     # Header
     st.markdown("""
         <div style='text-align: center; padding: 20px 0;'>
-            <h1 style='font-size: 48px; margin-bottom: 8px;'>🎯 AI Resume Screener</h1>
-            <p style='color: #94a3b8; font-size: 18px;'>Procurement & Sourcing Excellence</p>
+            <h1 style='font-size: 42px; margin-bottom: 8px; color: #0f172a;'>🎯 AI Resume Screener</h1>
+            <p style='color: #475569; font-size: 16px;'>Procurement & Sourcing Excellence</p>
         </div>
     """, unsafe_allow_html=True)
     
     # Sidebar
     with st.sidebar:
-        st.markdown("### 📊 Band Classification Guide")
+        if st.sidebar.button("🔄 Reset", use_container_width=True):
+            st.session_state.analyzed_resumes = []
+            st.rerun()
+
+        st.markdown("### 📊 Band Guide")
         st.markdown("""
-        <div style='background: rgba(30, 41, 59, 0.6); padding: 16px; border-radius: 12px; margin: 8px 0;'>
-            <div class='band-badge band-5A'>5A - Analyst</div>
-            <p style='color: #94a3b8; font-size: 12px; margin: 8px 0;'>0-1 years experience</p>
+        <div style='background: #ffffff; padding: 8px; border-radius: 8px; margin-bottom: 6px; border: 1px solid #e2e8f0;'>
+            <div style='display: flex; justify-content: space-between; align-items: center;'>
+                <span class='band-badge band-5A' style='font-size: 11px; padding: 4px 8px; margin: 0;'>5A</span>
+                <span style='color: #475569; font-size: 11px;'>0-2 yrs (Analyst)</span>
+            </div>
         </div>
-        <div style='background: rgba(30, 41, 59, 0.6); padding: 16px; border-radius: 12px; margin: 8px 0;'>
-            <div class='band-badge band-5B'>5B - Senior Analyst</div>
-            <p style='color: #94a3b8; font-size: 12px; margin: 8px 0;'>2-3 years experience</p>
+        <div style='background: #ffffff; padding: 8px; border-radius: 8px; margin-bottom: 6px; border: 1px solid #e2e8f0;'>
+            <div style='display: flex; justify-content: space-between; align-items: center;'>
+                <span class='band-badge band-5B' style='font-size: 11px; padding: 4px 8px; margin: 0;'>5B</span>
+                <span style='color: #475569; font-size: 11px;'>2-4 yrs (Sr Analyst)</span>
+            </div>
         </div>
-        <div style='background: rgba(30, 41, 59, 0.6); padding: 16px; border-radius: 12px; margin: 8px 0;'>
-            <div class='band-badge band-4A'>4A - Management Trainee</div>
-            <p style='color: #94a3b8; font-size: 12px; margin: 8px 0;'>4-7 years experience</p>
+        <div style='background: #ffffff; padding: 8px; border-radius: 8px; margin-bottom: 6px; border: 1px solid #e2e8f0;'>
+            <div style='display: flex; justify-content: space-between; align-items: center;'>
+                <span class='band-badge band-4A' style='font-size: 11px; padding: 4px 8px; margin: 0;'>4A</span>
+                <span style='color: #475569; font-size: 11px;'>4-8 yrs (Mgmt Trainee)</span>
+            </div>
         </div>
-        <div style='background: rgba(30, 41, 59, 0.6); padding: 16px; border-radius: 12px; margin: 8px 0;'>
-            <div class='band-badge band-4B'>4B - Assistant Manager</div>
-            <p style='color: #94a3b8; font-size: 12px; margin: 8px 0;'>8-11 years experience</p>
+        <div style='background: #ffffff; padding: 8px; border-radius: 8px; margin-bottom: 6px; border: 1px solid #e2e8f0;'>
+            <div style='display: flex; justify-content: space-between; align-items: center;'>
+                <span class='band-badge band-4B' style='font-size: 11px; padding: 4px 8px; margin: 0;'>4B</span>
+                <span style='color: #475569; font-size: 11px;'>8-12 yrs (Asst Mgr)</span>
+            </div>
         </div>
-        <div style='background: rgba(30, 41, 59, 0.6); padding: 16px; border-radius: 12px; margin: 8px 0;'>
-            <div class='band-badge band-4C'>4C - Manager</div>
-            <p style='color: #94a3b8; font-size: 12px; margin: 8px 0;'>12+ years experience</p>
+        <div style='background: #ffffff; padding: 8px; border-radius: 8px; margin-bottom: 6px; border: 1px solid #e2e8f0;'>
+            <div style='display: flex; justify-content: space-between; align-items: center;'>
+                <span class='band-badge band-4C' style='font-size: 11px; padding: 4px 8px; margin: 0;'>4C</span>
+                <span style='color: #475569; font-size: 11px;'>12+ yrs (Manager)</span>
+            </div>
         </div>
         """, unsafe_allow_html=True)
         
         st.markdown("---")
-        st.markdown("### 🎯 Key Skills Tracked")
+        st.markdown("### 📈 Scoring")
+        st.caption("Total: 100 Points")
         st.markdown("""
-        - 📦 Procurement & Sourcing
-        - 📊 Advanced Excel
-        - 📈 Power BI
-        - 📉 Tableau
-        - 🤝 Vendor Management
-        - 💰 Cost Optimization
+        - **Base Skills**: 40 pts
+        - **Adv. Concepts**: 30 pts
+        - **Premium Skills**: 20 pts
+        - **Density**: 10 pts
         """)
     
     # Main Content
@@ -256,8 +235,8 @@ def upload_resumes_section():
     with col1:
         st.markdown("""
         <div class='upload-section'>
-            <h3 style='color: #60a5fa; margin-bottom: 16px;'>📁 Drop your resumes here</h3>
-            <p style='color: #94a3b8;'>Supports PDF and DOCX formats</p>
+            <h3 style='color: #2563eb; margin-bottom: 16px;'>📁 Drop your resumes here</h3>
+            <p style='color: #64748b;'>Supports PDF and DOCX formats</p>
         </div>
         """, unsafe_allow_html=True)
         
@@ -275,21 +254,24 @@ def upload_resumes_section():
                 analyze_resumes(uploaded_files)
     
     with col2:
-        st.markdown("### ℹ️ Analysis Features")
+        st.markdown("### 📈 Scoring Methodology")
         st.markdown("""
-        <div style='background: rgba(30, 41, 59, 0.6); padding: 16px; border-radius: 12px;'>
-            <ul style='color: #94a3b8; line-height: 1.8;'>
-                <li>✨ AI-powered parsing</li>
-                <li>🎯 Experience extraction</li>
-                <li>🔍 Skills identification</li>
-                <li>📊 Domain assessment</li>
-                <li>🏆 Auto band classification</li>
-                <li>📈 Premium skills detection</li>
+        <div style='background: #ffffff; padding: 16px; border-radius: 12px; font-size: 13px; border: 1px solid #e2e8f0;'>
+            <p style='margin-bottom: 8px; color: #0f172a;'>Total Score: <strong>100 Points</strong></p>
+            <ul style='color: #475569; padding-left: 20px; margin: 0;'>
+                <li><strong>30 pts:</strong> Base Procurement Skills</li>
+                <li><strong>30 pts:</strong> Advanced Concepts (TCO, JIT, etc.)</li>
+                <li><strong>20 pts:</strong> Premium Skills (Python, PowerBI)</li>
+                <li><strong>10 pts:</strong> Keyword Density (Source/Vendor)</li>
+                <li><strong>10 pts:</strong> Stability (>2 yrs/role)</li>
             </ul>
         </div>
         """, unsafe_allow_html=True)
 
 def analyze_resumes(uploaded_files):
+    # Clear previous results to ensure only the latest batch is shown
+    st.session_state.analyzed_resumes = []
+    
     parser = ResumeParser()
     classifier = BandClassifier()
     skills_analyzer = SkillsAnalyzer()
@@ -307,7 +289,7 @@ def analyze_resumes(uploaded_files):
         band_info = classifier.classify(resume_data['experience'])
         
         # Analyze skills
-        skills_info = skills_analyzer.analyze(resume_data['text'])
+        skills_info = skills_analyzer.analyze(resume_data['text'], resume_data['experience'])
         
         # Combine results
         result = {
@@ -321,6 +303,11 @@ def analyze_resumes(uploaded_files):
             'procurement_skills': skills_info['procurement_skills'],
             'premium_skills': skills_info['premium_skills'],
             'domain_score': skills_info['domain_score'],
+            'score_breakdown': skills_info.get('score_breakdown', {}),
+            'suitability': skills_info.get('suitability', {}),
+            'best_fit_role': skills_info.get('best_fit_role', 'General Procurement'),
+            'pros': skills_info.get('pros', []),
+            'cons': skills_info.get('cons', []),
             'analysis_date': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
         
@@ -422,50 +409,99 @@ def analytics_dashboard():
     for resume in filtered_resumes:
         display_candidate_card(resume)
 
+def _generate_suitability_html(suitability):
+    html = ""
+    for role, data in suitability.items():
+        fit = data.get('fit', 'Low')
+        color = '#10b981' if fit == 'High' else '#f59e0b' if fit == 'Medium' else '#ef4444'
+        html += f"""
+        <div style='text-align: center; padding: 8px; background: rgba(255, 255, 255, 0.05); border-radius: 8px;'>
+            <div style='font-size: 12px; color: #94a3b8; margin-bottom: 4px;'>{role}</div>
+            <div style='color: {color}; font-weight: 700;'>{fit} Fit</div>
+        </div>
+        """
+    return html
+
 def display_candidate_card(resume):
-    st.markdown(f"""
-    <div class='candidate-card'>
-        <div style='display: flex; justify-content: space-between; align-items: start;'>
-            <div>
-                <h3 style='margin: 0 0 8px 0; color: #ffffff;'>👤 {resume['name']}</h3>
-                <p style='color: #94a3b8; margin: 4px 0;'>📧 {resume['email']}</p>
-                <p style='color: #94a3b8; margin: 4px 0;'>📱 {resume['phone']}</p>
-            </div>
-            <div>
-                <div class='band-badge band-{resume['band']}'>{resume['band']} - {resume['designation']}</div>
-            </div>
-        </div>
+    with st.container():
+        # Use a bordered container styled with CSS or just native elements
+        st.markdown("""---""")
         
-        <div style='margin: 16px 0;'>
-            <div style='display: inline-block; background: rgba(59, 130, 246, 0.1); padding: 8px 16px; border-radius: 8px; margin-right: 16px;'>
-                <span style='color: #94a3b8;'>Experience:</span>
-                <span style='color: #60a5fa; font-weight: 600; margin-left: 8px;'>{resume['experience']} years</span>
-            </div>
-            <div style='display: inline-block; background: rgba(16, 185, 129, 0.1); padding: 8px 16px; border-radius: 8px;'>
-                <span style='color: #94a3b8;'>Domain Score:</span>
-                <span style='color: #34d399; font-weight: 600; margin-left: 8px;'>{resume['domain_score']}/100</span>
-            </div>
-        </div>
+        # Header Section
+        col1, col2 = st.columns([3, 1])
+        with col1:
+            st.markdown(f"### 👤 {resume['name']}")
+            st.caption(f"📧 {resume['email']} | 📱 {resume['phone']}")
+        with col2:
+            st.markdown(f"**{resume['band']}**")
+            st.caption(resume['designation'])
+
+        # Metrics Section
+        m1, m2, m3 = st.columns(3)
+        with m1:
+            st.metric("Experience", f"{resume['experience']} Years")
+        with m2:
+            st.metric("Domain Score", f"{resume['domain_score']}/100")
+        with m3:
+            st.metric("Best Fit", resume.get('best_fit_role', 'General'))
+            
+        # Skills Section
+        st.markdown("**🎯 Procurement Skills**")
+        if resume['procurement_skills']:
+            st.markdown(", ".join([f"`{s}`" for s in resume['procurement_skills']]))
+        else:
+            st.caption("No specific skills detected")
+            
+        st.markdown("**⭐ Premium Skills**")
+        if resume['premium_skills']:
+            st.markdown(", ".join([f"`{s}`" for s in resume['premium_skills']]))
+        else:
+            st.caption("No premium skills detected")
+
+        # Role Fitment Section
+        st.markdown("##### 📊 Role Fitment")
+        f1, f2, f3 = st.columns(3)
+        suitability = resume.get('suitability', {})
         
-        <div style='margin: 16px 0;'>
-            <p style='color: #94a3b8; margin-bottom: 8px; font-weight: 600;'>🎯 Procurement Skills:</p>
-            <div>
-                {''.join([f"<span class='skill-tag'>{skill}</span>" for skill in resume['procurement_skills']]) if resume['procurement_skills'] else "<span style='color: #94a3b8;'>No specific skills detected</span>"}
-            </div>
-        </div>
+        with f1:
+            fit = suitability.get('Sourcing', {}).get('fit', 'Low')
+            color = "green" if fit == 'High' else "orange" if fit == 'Medium' else "red"
+            st.markdown(f"**Sourcing**: :{color}[{fit}]")
+        with f2:
+            fit = suitability.get('Procurement', {}).get('fit', 'Low')
+            color = "green" if fit == 'High' else "orange" if fit == 'Medium' else "red"
+            st.markdown(f"**Procurement**: :{color}[{fit}]")
+        with f3:
+            fit = suitability.get('Vendor Development', {}).get('fit', 'Low')
+            color = "green" if fit == 'High' else "orange" if fit == 'Medium' else "red"
+            st.markdown(f"**Vendor Dev**: :{color}[{fit}]")
+
+        # Scoring Breakdown Expander
+        with st.expander("📈 View Scoring Breakdown"):
+            breakdown = resume.get('score_breakdown', {})
+            b1, b2, b3, b4, b5 = st.columns(5)
+            b1.metric("Base", f"{breakdown.get('Base Skills', 0)}/30")
+            b2.metric("Advanced", f"{breakdown.get('Advanced Concepts', 0)}/30")
+            b3.metric("Premium", f"{breakdown.get('Premium Skills', 0)}/20")
+            b4.metric("Density", f"{breakdown.get('Density (Role Keywords)', 0)}/10")
+            b5.metric("Stability", f"{breakdown.get('Stability (>2yr Avg)', 0)}/10")
+            
+        # Conclusion Box
+        st.info(f"**Conclusion**: {resume['name']} is a **{resume['band']} ({resume['designation']})** candidate with **{resume['experience']} years** exp. Best suited for **{resume.get('best_fit_role', 'General')}**.")
         
-        <div style='margin: 16px 0;'>
-            <p style='color: #94a3b8; margin-bottom: 8px; font-weight: 600;'>⭐ Premium Skills:</p>
-            <div>
-                {''.join([f"<span class='skill-tag premium'>{skill}</span>" for skill in resume['premium_skills']]) if resume['premium_skills'] else "<span style='color: #94a3b8;'>No premium skills detected</span>"}
-            </div>
-        </div>
-        
-        <div style='margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(148, 163, 184, 0.2);'>
-            <p style='color: #64748b; font-size: 12px;'>📅 Analyzed: {resume['analysis_date']}</p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+        # Pros and Cons
+        c1, c2 = st.columns(2)
+        with c1:
+            if resume.get('pros'):
+                st.markdown("✅ **Strengths**")
+                for pro in resume['pros']:
+                    st.markdown(f"<span style='color: #16a34a; font-size: 14px;'>• {pro}</span>", unsafe_allow_html=True)
+                    
+        with c2:
+            if resume.get('cons'):
+                st.markdown("⚠️ **Areas for Improvement**")
+                for con in resume['cons']:
+                     st.markdown(f"<span style='color: #dc2626; font-size: 14px;'>• {con}</span>", unsafe_allow_html=True)
 
 def export_results():
     st.markdown("### 💾 Export Results")
